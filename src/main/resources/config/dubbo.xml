@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+		http://code.alibabatech.com/schema/dubbo        
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<!-- Dubbo提供方 -->
+	<!-- 1：名称  计算机 区别 唯一 -->
+	<dubbo:application name="wei-server"/>
+	<!-- 2：设置注册中心  地址  zookeeper在哪里  redis ... -->
+	<dubbo:registry address="${server_dubbo_zookeeper_url}" check="false" client="zkclient" protocol="zookeeper"/>
+     <!-- 设置不注册 -->
+<!-- 	<dubbo:registry address="N/A"/> -->
+	<!-- 3：dubbo://127.0.0.1:20880  默认  设置提供服务的端口号 -->
+<!-- 	<dubbo:protocol port="20880" name="dubbo"/> -->
+	<!--超时时间 -->
+	<dubbo:consumer timeout="120000"></dubbo:consumer>
+	<!--自动扫描 -->
+	<dubbo:annotation package="com.wei.dubbo.server.Impl"  />
+	<dubbo:monitor protocol="registry" />
+	<!-- 4： 暴露实现类-->
+<!-- 	<dubbo:service interface="com.dubbo.service.TestService" ref="bankService"/> -->
+	
+<!-- 	<bean id="bankService" class="com.dubbo.serviceImpl.BankServiceImpl" /> -->
+</beans>

@@ -1,0 +1,3 @@
+com\wei\dubbo\server\config\ProjectConfig.class
+com\wei\dubbo\server\Impl\MainServiceImpl.class
+com\wei\dubbo\server\mapper\MainMapper.class
