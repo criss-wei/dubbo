@@ -1,5 +1,6 @@
 package com.wei.dubbo.server.config;
 
+
 import java.util.ResourceBundle;
 
 /**
